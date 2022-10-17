@@ -1,0 +1,252 @@
+<!--
+ * @Author: Mortar
+ * @Date: 2021-03-02 09:51:21
+ * @LastEditors: Mortar
+ * @LastEditTime: 2021-03-11 16:00:14
+ * @Description:
+ * @FilePath: \母体实验室\public\index.html
+-->
+<!DOCTYPE html>
+<html lang="cmn-Hans">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<meta charset="utf-8" />
+		<!-- 强制Chromium内核，作用于360浏览器、QQ浏览器等国产双核浏览器 -->
+		<meta name="renderer" content="webkit" />
+		<!-- 强制Chromium内核，作用于其他双核浏览器 -->
+		<meta name="force-rendering" content="webkit" />
+		<!-- 如果有安装 Google Chrome Frame 插件则强制为Chromium内核，否则强制本机支持的最高版本IE内核，作用于IE浏览器 -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge" /> -->
+		<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+		<link rel="icon" href="<%= BASE_URL %>favicon.ico" />
+		<!-- https://api.map.baidu.com/api?v=3.0&ak=您的密钥 -->
+		<!-- https://api.map.baidu.com/api?v=2.0&ak=NMhsLIvOYnvGiv1MdBvDyAqhsyNC6sM9&callback=initialize -->
+		<script type="text/javascript" src="https://api.map.baidu.com/api?v=1.0&type=webgl&ak=NMhsLIvOYnvGiv1MdBvDyAqhsyNC6sM9"></script>
+		<!-- 检测浏览器 -->
+		<script type="text/javascript">
+			var BrowserMatch = {
+				init: function() {
+					this.browser = this.getBrowser().browser || "An Unknown Browser";
+					this.version = this.getBrowser().version || "An Unknown Version";
+					this.OS = this.getOS() || "An Unknown OS";
+					if (this.version == 'Undefined' || this.version == 'An Unknown Version') {
+						this.nVersion = 0.0
+					} else if (this.version.split('.').length > 2) {
+						let temp = this.version.split('.')[0] + '.' + this.version.split('.')[1]
+						this.nVersion = parseFloat(temp)
+					} else {
+						this.nVersion = Number(this.version)
+					}
+				},
+				getOS: function() {
+					if (navigator.platform.indexOf("Win") != -1) return "Windows";
+					if (navigator.platform.indexOf("Mac") != -1) return "Mac";
+					if (navigator.userAgent.indexOf("Android") != -1) return "Android";
+					if (navigator.platform.indexOf("Linux") != -1) return "Linux";
+					if (navigator.userAgent.indexOf("iPhone") != -1) return "iPhone/iPod";
+				},
+				getBrowser: function() {
+					var rMsie = /(msie\s|trident\/7)([\w\.]+)/;
+					var rTrident = /(trident)\/([\w.]+)/;
+					var rFirefox = /(firefox)\/([\w.]+)/;
+					var rOpera = /(opera).+version\/([\w.]+)/;
+					var rNewOpera = /(opr)\/(.+)/;
+					var rChrome = /(chrome)\/([\w.]+)/;
+					var rSafari = /version\/([\w.]+).*(safari)/;
+					//User-Agent : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Safari/537.36Edge/13.10586
+					var rEdge = /(Edge)\/([\w.]+)/;
+					var ua = navigator.userAgent.toLowerCase();
+					var matchBS, matchBS2;
+					matchBS = rMsie.exec(ua);
+					if (matchBS != null) {
+						matchBS2 = rTrident.exec(ua);
+						if (matchBS2 != null) {
+							switch (matchBS2[2]) {
+								case "4.0":
+									return {
+										browser: "IE", version: "8"
+									};
+									break;
+								case "5.0":
+									return {
+										browser: "IE", version: "9"
+									};
+									break;
+								case "6.0":
+									return {
+										browser: "IE", version: "10"
+									};
+									break;
+								case "7.0":
+									return {
+										browser: "IE", version: "11"
+									};
+									break;
+								default:
+									return {
+										browser: "IE", version: "Undefined"
+									};
+							}
+						} else {
+							return {
+								browser: "IE",
+								version: matchBS[2] || "0"
+							};
+						}
+					}
+					matchBS = rEdge.exec(ua);
+					if ((matchBS != null)) {
+						return {
+							browser: matchBS[1] || "",
+							version: matchBS[2] || "0"
+						};
+					}
+					matchBS = rFirefox.exec(ua);
+					if ((matchBS != null) && (!(window.attachEvent)) && (!(window.chrome)) && (!(window.opera))) {
+						return {
+							browser: matchBS[1] || "",
+							version: matchBS[2] || "0"
+						};
+					}
+					matchBS = rOpera.exec(ua);
+					if ((matchBS != null) && (!(window.attachEvent))) {
+						return {
+							browser: matchBS[1] || "",
+							version: matchBS[2] || "0"
+						};
+					}
+					matchBS = rChrome.exec(ua);
+					if ((matchBS != null) && (!!(window.chrome)) && (!(window.attachEvent))) {
+						matchBS2 = rNewOpera.exec(ua);
+						if (matchBS2 == null) {
+							return {
+								browser: matchBS[1] || "",
+								version: matchBS[2] || "0"
+							};
+						} else {
+							return {
+								browser: "Opera",
+								version: matchBS2[2] || "0"
+							};
+						}
+					}
+					matchBS = rSafari.exec(ua);
+					if ((matchBS != null) && (!(window.attachEvent)) && (!(window.chrome)) && (!(window.opera))) {
+						return {
+							browser: matchBS[2] || "",
+							version: matchBS[1] || "0"
+						};
+					}
+
+
+				}
+			};
+
+			// ie11版本以下的提示
+			//(function() {
+			//浏览器检测
+			BrowserMatch.init();
+			console.log(BrowserMatch);
+			var flag = undefined;
+			if (BrowserMatch.browser == 'IE') {
+				flag = 1;
+			} else if (BrowserMatch.OS == 'Windows' || BrowserMatch.OS == 'Mac' ||
+				BrowserMatch.OS == 'Linux') {
+				if ((BrowserMatch.browser == 'chrome' && BrowserMatch.nVersion < 80) || (BrowserMatch.browser ==
+						'firefox' && BrowserMatch.nVersion < 21) || (BrowserMatch.browser == 'safari' && BrowserMatch
+						.nVersion < 6.1)) {
+					flag = 1;
+				}
+
+			} else if (BrowserMatch.OS == 'Android' || BrowserMatch.OS == 'iPhone/iPod') {
+				if ((BrowserMatch.browser == 'chrome' && BrowserMatch.nVersion < 80)) {
+					flag = 1;
+				}
+			} else if (BrowserMatch.browser == 'Edge') {
+				flag = 2;
+			}
+			if (flag == 1) {
+				var current = BrowserMatch.browser + ' ' + BrowserMatch.version
+				alert(
+					'当前版本为' + current +
+					"。\n请在ie11版本浏览器上使用系统,如果您使用的是双核浏览器,请您切换浏览器内核为极速模式,本网站支持chrome pc(80版本以上)、firefox(21以上)、safari(6.1以上)、chrome android(80以上)"
+				);
+			}
+			//})();
+		</script>
+		<script src="./static/js/js_onload.js"></script>
+		<script>
+			// const interval = setInterval(function () {
+			//   if (window.$) {
+			//     clearInterval(interval)
+			//     window.jquery = window.$
+			//     window.jQuery = window.$
+			//   }
+			// })
+		</script>
+		<!-- luckysheet cdn jsdelivr  -->
+		<link rel="stylesheet" href="./static/lib/luckysheet/plugins/css/pluginsCss.css" />
+		<link rel="stylesheet" href="./static/lib/luckysheet/css/ztreecss/zTreeStyle/zTreeStyle.css" />
+		<link rel="stylesheet" href="./static/lib/luckysheet/plugins/plugins.css" />
+		<link rel="stylesheet" href="./static/lib/luckysheet/css/luckysheet.css" />
+		<link rel="stylesheet" href="./static/lib/luckysheet/assets/iconfont/iconfont.css" />
+
+    <script src="./static/lib/spreadjs/compress/pako.min.js"></script>
+    <script src="./static/lib/spreadjs/compress/base64js.min.js"></script>
+		<script src="./static/lib/zlib/zlib.min.js"></script>
+		<script src="./static/lib/zlib/inflate.min.js"></script>
+		<script src="./static/lib/zlib/deflate.min.js"></script>
+		<script src="./static/lib/zlib/inflate_stream.min.js"></script>
+    <script src="./static/lib/word/DDoc.js"></script>
+    <script src="./static/lib/word/jszip.js"></script>
+
+    <script type="text/javascript" src="./static/lib/spreadjs/custom/canvas/decimal.min.js"></script>
+    <script type="text/javascript" src="./static/lib/spreadjs/custom/canvas/wjmo.wijspread.canvas.html.js"></script>
+
+
+		<title>
+			<%= VUE_APP_TITLE %>
+		</title>
+		<meta name="keywords"
+			content="vab,vab官网,后台管理框架,vue后台管理框架,vue-admin-beautiful,vue-admin-beautiful官网,vue-admin-beautiful文档,vue-element-admin,vue-element-admin官网,vue-element-admin文档,vue-admin,vue-admin官网,vue-admin文档" />
+		<meta name="description"
+			content="<%= VUE_APP_TITLE %>官网与文档基于vue-admin-beautiful构建，简称vab（是一款超棒的vue+element中后台前端快速开发框架），QQ群972435319，作者：<%= VUE_APP_AUTHOR %>" />
+		<meta name="author" content="<%= VUE_APP_AUTHOR %>" />
+		<link rel="stylesheet" href="<%= BASE_URL %>static/css/loading.css" />
+		<link rel="stylesheet" type="text/css" href="<%= BASE_URL %>static/css/base.css" />
+	</head>
+
+	<body>
+		<noscript>
+			<strong>如果您正常浏览时看到此提示请启用JavaScript，没有JavaScript您无法查看<%= VUE_APP_TITLE %></strong>
+			<strong>非常抱歉鉴于安全考量,您无法查看 <%= VUE_APP_TITLE %>。</strong>
+		</noscript>
+		<div id="vue-admin-beautiful">
+			<div class="first-loading-wrp">
+				<div class="loading-wrp">
+					<span class="dot dot-spin">
+						<i></i>
+						<i></i>
+						<i></i>
+						<i></i>
+					</span>
+				</div>
+				<h1>
+					<%= VUE_APP_TITLE %>
+				</h1>
+			</div>
+		</div>
+		<script>
+			;
+			/^http(s*):\/\//.test(location.href) ||
+				alert('基于vue-admin-beautiful开发的项目需要部署到服务器下访问')
+		</script>
+	</body>
+
+</html>
+<script src="./static/lib/luckysheet/luckysheet.umd.js"></script>
+<script src="./static/lib/luckysheet/plugins/js/plugin.js"></script>
+<script src="./static/lib/luckysheet/luckSheetCustomFormula.js"></script>
+<script src="./static/lib/easyPlay/EasyWasmPlayer.js"></script>

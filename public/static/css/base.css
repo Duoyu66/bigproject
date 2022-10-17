@@ -1,0 +1,93 @@
+@charset "utf-8";
+/* 样式覆盖  2021-01-23王玲慧*/
+/* 表格样式覆盖 */
+/* .definition .el-table__body tr.current-row > td,.definition2 .el-table__body tr.current-row > td
+{background-color:#1a66ffab!important;} */
+/* .definition .el-table__body tr:hover,.definition2 .el-table__body tr:hover
+{background-color:#1a66ffab!important;} */
+ tr.current-row td .cell{color: #1a66ff!important;}
+ tr td .cell:hover{color: #1a66ff!important;}
+ .el-table__body tr.current-row>td.el-table__cell{background-color:#e8f0ff!important}
+/* 按钮样式覆盖 */
+.el-button.danger{height: 23px;padding: 0 8px;line-height: 22px;background: #ffeded;border:1px solid #ffdbdc;color: #ff4d4f!important;}
+.el-button.normal{height: 23px;padding: 0 8px;line-height: 22px;background: #e8f0ff;border:1px solid #d1e0ff;color: #1a66ff;}
+.el-button.danger,.el-button.normal{ display: inline-block;font-size: 12px;border-radius: 2px;box-sizing: border-box;white-space: nowrap;}
+.el-button.danger:hover{background: #ffeded;border-color: #ffdbdc;color: #ff4d6e}
+.el-button.normal:hover,.el-button.normal:visited{background: #e8f0ff;border-color: #d1e0ff;color:#1a66ff}
+.el-dropdown .el-button--small {padding: 5px 10px!important;}
+tr.current-row .el-table__expand-icon{color:#fff;}
+tr.current-row .el-dropdown-selfdefine{background: #e8f0ff;color: #1a66ff;}
+/* 表格样式覆盖 */
+.el-table--small .el-table__cell {
+      padding: 6px 0!important;
+  }
+html body .el-table td, html body .el-table th{height:auto!important;}
+
+/* 生成的excel文件图样式优化 */
+/* 试验定义-参数模板 */
+.excelTitle{margin:0px 0 0 0;height: 40px;box-sizing: border-box; line-height: 40px;width:100%;
+color:#606266;padding-left:27px;font-size:14px;background:#e8f0ff url("../images/down.png") no-repeat 15px 12px;
+}
+.excelTitle button{float:right;margin: 4px 0 0 0;height: 32px;}
+#recordsheet{margin:0px;padding:0px;height: 350px;border:1px solid #CCCCCC}
+#entrustsheet{margin:0px;padding:0px;height: 700px;border:1px solid #CCCCCC}
+/* 流程图相关 */
+.pubChartBox span b{height:18px;line-height:18px; padding:0 6px;display:inline-block;background:#fec300;
+border-radius:12px;border:1px solid #ea9808;color:#fff;width:auto;position: relative;top:-7px;left:66px;}
+ @media only screen and (max-width: 1366px) {
+   .pubChartBox span b{left:45px;}
+ }
+/* 左侧菜单栏 */
+.side-bar-container {
+    /* background:#1a66ff url("../../../src/images/menuListBg.jpg") no-repeat bottom center;background-size: 100%; */
+    background:#1a66ff url("../images/menuListBg.jpg") no-repeat bottom center!important;background-size: 100%!important;
+    }
+.el-menu{
+  background:none!important;
+}
+.el-menu li{
+  background:none!important;
+}
+/* 字体颜色样式覆盖不了 无效代码 */
+.side-bar-container .el-menu-item.is-active {
+    /* color: #1a66ff!important; */
+    /* background-color: #ffffff!important; */
+    /* border-radius: 30px 0 0 30px; */
+    }
+.side-bar-container  .el-menu-item{
+
+}
+/* 贾德傲 2021-01-29 */
+.definition .around .right-panel{
+  width: 100% !important;
+  justify-content: space-between !important;
+}
+/* 右侧区域边距统一 */
+.el-dialog__headerbtn{
+      top: 15px!important;
+}
+/* 区域块统一样式 */
+.baseBox{
+background:#fff;
+border-radius:5px;
+border: 1px solid #dbe0e6;
+box-shadow: 0 1px 4px rgb(0 21 41 / 8%);
+padding: 10px;
+box-sizing: border-box;
+}
+.el-footer{padding:0!important;}
+/* 参数模板页面使用 */
+/* 按钮边距问题样式覆盖 */
+.vab-query-form .left-panel > .el-button, .vab-query-form .left-panel .el-form-item{margin:0!important;}
+.vab-query-form .right-panel .el-form-item{margin:0!important;}
+/* 表格边距问题 */
+.el-tabs--border-card > .el-tabs__content{padding:10px!important;}
+.el-tabs--border-card{box-sizing: border-box;}
+/* excel表格颜色优化 */
+.ui-widget-header{
+  background: #e8f0ff!important;
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+background: #1a66ff38!important;width:10px!important;}
+.wijmo-wijsuperpanel .wijmo-wijsuperpanel-vbarcontainer{width: 10px!important;}
+.wijmo-wijsuperpanel .wijmo-wijsuperpanel-hbarcontainer{height: 10px!important;}

@@ -1,0 +1,956 @@
+/**
+ * @author chuzhixin 1204505056@qq.com （不想保留author可删除）
+ * @description 全局主题变量配置
+ */
+/* stylelint-disable */
+@charset "utf-8";
+//框架默认主题色
+//$base-color-default: #5a93fe;
+$base-color-default: #1a66ff;
+//默认层级
+$base-z-index: 999;
+//横向布局纵向布局时菜单背景色
+$base-menu-background: rgb(26, 102, 255);
+//菜单文字颜色
+$base-menu-color: hsla(0, 0%, 100%, 0.95);
+//菜单选中文字颜色
+$base-menu-color-active: hsla(0, 0%, 100%, 0.95);
+//菜单选中背景色
+$base-menu-background-active: $base-color-default;
+//$base-menu-background-active: hsla(0, 0%, 100%, 0.95);
+//标题颜色
+$base-title-color: #fff;
+//字体大小配置
+$base-font-size-small: 12px;
+$base-font-size-default: 14px;
+$base-font-size-big: 16px;
+$base-font-size-bigger: 18px;
+$base-font-size-max: 22px;
+$base-font-color: #606266;
+$base-color-blue: $base-color-default;
+$base-color-green: #13ce66;
+$base-color-white: #fff;
+$base-color-black: #000;
+$base-color-yellow: #ffba00;
+$base-color-orange: #ff6700;
+$base-color-red: #ff4d4f;
+$base-color-gray: rgba(0, 0, 0, 0.65);
+$base-color-model: rgba(173, 111, 185, 1);
+$base-main-width: 1279px;
+$base-border-radius: 2px;
+$base-border-color: #dcdfe6;
+//输入框高度
+$base-input-height: 32px;
+//默认paddiing
+$base-padding:10px;
+$base-margin:10px;
+//默认阴影
+$base-box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+//横向布局时top-bar、logo、一级菜单的高度
+$base-top-bar-height: 65px;
+//纵向布局时logo的高度
+$base-logo-height: 75px;
+//顶部nav-bar的高度
+$base-nav-bar-height: 50px;
+//顶部多标签页tabs-bar的高度
+$base-tabs-bar-height:48px;
+//顶部多标签页tabs-bar中每一个item的高度
+$base-tag-item-height: 34px;
+//菜单li标签的高度
+$base-menu-item-height: 50px;
+//app-main的高度
+$base-app-main-height: calc(
+  100vh - #{$base-nav-bar-height} - #{$base-tabs-bar-height} - #{$base-padding} -
+  #{$base-padding}
+);
+$base-parameterTab-height:calc(
+  #{$base-app-main-height} - 108px
+);
+$chartBox-height:calc(
+  #{$base-app-main-height} - 1rem
+);
+//纵向布局时左侧导航未折叠时的宽度
+$base-left-menu-width:200px;
+//纵向布局时左侧导航未折叠时右侧内容的宽度
+$base-right-content-width: calc(100% - #{$base-left-menu-width});
+//纵向布局时左侧导航已折叠时的宽度
+$base-left-menu-width-min: 65px;
+//纵向布局时左侧导航已折叠时右侧内容的宽度
+$base-right-content-width-min: calc(100% - #{$base-left-menu-width-min});
+//默认动画
+$base-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), border 0s,
+background 0s, color 0s;
+//默认动画长
+$base-transition-time: 0.3s;
+
+:export {
+  //菜单文字颜色变量导出
+  menu-color: $base-menu-color;
+  //菜单选中文字颜色变量导出
+  menu-color-active: $base-menu-color-active;
+  //菜单背景色变量导出
+  menu-background: $base-menu-background;
+}
+//新添加自定义颜色 2020-12-03王玲慧
+.none{display:none}
+//参数表格的高度设置
+//.parameterBoxTable .el-table__body{height:$base-parameterTab-height;overflow-y:scroll }
+.definition .parameterBoxTable .el-table__row td{text-align:left!important;}
+.definition2 .parameterBoxTable .el-table__row td{text-align:left!important;}
+.definition .el-table .has-gutter th{background:#e8f0ff!important;}
+.definition2 .el-table .has-gutter th{background:#e8f0ff!important;}
+// 2021-11-11 王玲慧 样式覆盖
+.el-main{padding:0px!important;box-sizing:border-box;}
+.el-footer{padding-left:0px!important;}
+// 表格css 12-22贾德傲
+// .definition .el-main{
+//   padding: 0 0px 0 20px;
+// }
+// .definition2 .el-main{
+//   padding: 0 0px 0 20px;
+// }
+
+.definition .el-dialog__header .el-dialog__title {
+  padding: 0;
+  font-size: 13px;
+}
+.definition2 .el-dialog__header .el-dialog__title {
+  padding: 0;
+  font-size: 13px;
+}
+
+.definition .el-dialog__header {
+  padding: 10px 5px 10px 20px;
+  background:#e9e9e99c;
+}
+.definition2 .el-dialog__header {
+  padding: 10px 5px 10px 20px;
+  background:#e9e9e99c;
+}
+
+.definition .el-dialog__footer {
+  padding: 10px 5px 20px 5px;
+  border: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.definition2 .el-dialog__footer {
+  padding: 10px 5px 20px 5px;
+  border: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.definition .el-dialog__body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  //border-top: 3px solid #dcdfe6;
+  padding: 10px 20px;
+  overflow-y: auto;
+}
+.definition2 .el-dialog__body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  //border-top: 3px solid #dcdfe6;
+  padding: 10px 20px;
+  overflow-y: auto;
+}
+
+// .definition .el-dialog__body .el-form .el-form-item {
+//   margin-bottom: 20px;
+// }
+// .definition2 .el-dialog__body .el-form .el-form-item {
+//   margin-bottom: 20px;
+// }
+// .purchase .el-dialog__body .el-form .el-form-item {
+//   margin-bottom: 5px;
+// }
+
+
+.definition .has-gutter th {
+  text-align: center;
+}
+.definition2 .has-gutter th {
+  text-align: center;
+}
+
+.definition .el-table__row td {
+  text-align: center;
+}
+// .definition2 .el-table__row td {
+//   text-align: center;
+// }
+
+.definition .el-dialog {
+  width: 500px;
+  overflow-y: auto;
+}
+.definition2 .el-dialog {
+  width: 500px;
+  overflow-y: auto;
+}
+// .purchase .el-dialog__body .el-form .el-form-item {
+//   margin-bottom: 5px;
+// }
+
+
+.definition .has-gutter th {
+  text-align: center;
+}
+.definition2 .has-gutter th {
+  text-align: center;
+}
+
+.definition .el-dialog {
+  width: 500px;
+}
+.definition2 .el-dialog {
+  width: 500px;
+}
+
+.more{
+  max-width: 115px;
+  padding-top: 0;
+}
+.more .el-button{
+  width: 100%;
+
+  border: 0;
+  margin: 0;
+}
+.distribution .el-dialog {
+  width: 1000px;
+}
+.distribution .distribution_table{
+  height: 300px;
+
+}
+.distribution .distribution_table .el-table__body-wrapper{
+  height: 240px;
+  overflow-y: auto;
+}
+
+.distribution .dialog-title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.distribution .el-dialog__body{
+  border: 0;
+}
+
+.alarmrecord{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.alarmrecord .el-date-editor{
+  margin: 0 10px;
+}
+
+.definition .el-menu-item.is-active {
+  background-color: #d0ddff !important;
+
+}
+.definition2 .el-menu-item.is-active {
+  background-color: #d0ddff !important;
+
+}
+
+.definition .el-menu-item:hover {
+  background-color: #e8f0ff !important;
+}
+.definition2 .el-menu-item:hover {
+  background-color: #e8f0ff !important;
+}
+
+.definition .el-submenu__title:hover span {
+  background-color: transparent;
+  color: #1a66ff !important;
+}
+.definition2 .el-submenu__title:hover span {
+  background-color: transparent;
+  color: #1a66ff !important;
+}
+
+.definition .el-menu-item:hover i {
+  /*    background-color: transparent; */
+  color: #1a66ff !important;
+}
+.definition2 .el-menu-item:hover i {
+  /*    background-color: transparent; */
+  color: #1a66ff !important;
+}
+
+.definition .el-submenu__title:hover {
+  background-color: #e8f0ff !important;
+}
+.definition2 .el-submenu__title:hover {
+  background-color: #e8f0ff !important;
+}
+
+.definition .el-submenu__title:hover i {
+  color: #1a66ff !important;
+}
+.definition2 .el-submenu__title:hover i {
+  color: #1a66ff !important;
+}
+
+.table_auto .el-table__body-wrapper{
+  height: calc(74%);
+  overflow-y: auto;
+}
+.definition .el-dialog__footer button{
+  width: 80px;
+  /* margin: 0 15px; */
+  margin-left: 110px;
+  float: left;
+}
+.definition2 .el-dialog__footer button{
+  width: 80px;
+  /* margin: 0 15px; */
+  margin-left: 110px;
+  float: left;
+}
+
+.definition .el-dialog__footer .dialog-footer{
+  width: 100%;
+  text-align: center;
+}
+.definition2 .el-dialog__footer .dialog-footer{
+  width: 100%;
+  text-align: center;
+}
+
+.definition .cerification_head .el-menu-item{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.definition2 .cerification_head .el-menu-item{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.definition .el-container{
+  height: 100%;
+}
+.definition2 .el-container{
+  height: calc(100vh - 209px);
+}
+
+.definition .el-container .el-table__body-wrapper{
+  overflow-y: auto;
+}
+.definition2 .el-container .el-table__body-wrapper{
+  overflow-y: auto;
+}
+.definition .label .el-table__body-wrapper{
+  height: calc(25.5vh);
+}
+.definition2 .label .el-table__body-wrapper{
+  height: calc(25.5vh);
+}
+// .definition .vab-query-form{
+//   margin: 0;
+// }
+// .definition2 .vab-query-form{
+//   margin: 0;
+// }
+
+.supervision .el-dialog {
+  width: 1100px;
+}
+
+.draft .el-form-item__content{
+  width: calc(100% - 80px);
+}
+.draft_textarea .el-form-item__content,.draft_textarea .el-textarea,.draft_textarea .el-textarea__inner{
+  height: calc(100%);
+}
+
+.definition .draft_button .el-button{
+  width: 120px;
+  margin-right: 10px;
+}
+.definition2 .draft_button .el-button{
+  width: 120px;
+  margin-right: 10px;
+}
+
+.definition .personallntegral .definition_txt{
+  margin: 0 10px;
+}
+.definition2 .personallntegral .definition_txt{
+  margin: 0 10px;
+}
+
+.definition .personallntegral .el-input{
+  width: 171px;
+}
+.definition2 .personallntegral .el-input{
+  width: 171px;
+}
+
+.sealedger .el-table__body-wrapper{
+  height: calc(100% - 39px);
+}
+
+.roledefinition .el-textarea__inner{
+  height: 120px;
+}
+
+.parameter .el-col .right-panel{
+  justify-content: flex-start;
+}
+
+.definition .routine .cell {
+  display: flex;
+  justify-content: flex-end;
+}
+.definition2 .routine .cell {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.definition .headline {
+  font-weight: bold;
+      font-size: 14px;
+      width: calc(100% - 230px);
+      border-bottom: 1px solid #ebeef5;
+      padding-bottom: 10px;
+          display: inline-block;
+          margin-bottom:10px;
+}
+.definition2 .headline {
+  font-weight: bold;
+      font-size: 14px;
+      width: calc(100% - 230px);
+      border-bottom: 1px solid #ebeef5;
+      padding-bottom: 10px;
+          display: inline-block;
+           margin-bottom:10px;
+}
+
+.template .el-col .right-panel{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.definition .record .right-panel{
+  justify-content: flex-start;
+
+}
+.definition2 .record .right-panel{
+  justify-content: flex-start;
+
+}
+
+.dictionary .el-dialog__body{
+  padding: 10px;
+}
+.dictionary .el-col .left-panel{
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+// .definition .vab-query-form{
+//   margin-bottom: 11px;
+// }
+// .definition2 .vab-query-form{
+//   margin-bottom: 11px;
+// }
+
+.colors .el-aside .el-table .el-button--small{
+  padding: 5px 15px;
+}
+
+.definition .mapping .el-table__body-wrapper {
+  height: calc(50vh - 164px);
+}
+.definition2 .mapping .el-table__body-wrapper {
+  height: calc(50vh - 164px);
+}
+
+.button_mapping{
+  margin: 5px 0;
+  width: 100%;
+}
+
+
+.definition .verifation .left-panel{
+  align-items: center;
+}
+.definition2 .verifation .left-panel{
+  align-items: center;
+}
+
+.definition .consumption .left-panel{
+  align-items: center;
+  justify-content: space-between;
+}
+.definition2 .consumption .left-panel{
+  align-items: center;
+  justify-content: space-between;
+}
+
+.definition .flex .right-panel{
+  justify-content: space-between;
+}
+.definition2 .flex .right-panel{
+  justify-content: space-between;
+}
+
+.roleper .el-container {
+  height: calc(100vh - 161px);
+}
+
+.roleper .el-main .el-checkbox{
+  width: 84px;
+}
+
+.definition .gutter{
+  background:'#e8f0ff'
+}
+.definition2 .gutter{
+  background:'#e8f0ff'
+}
+
+.definition .integral .el-row{
+  height: 80%;
+  border-bottom: 1px solid;
+}
+.definition2 .integral .el-row{
+  height: 80%;
+  border-bottom: 1px solid;
+}
+
+.definition .integral .el-row .el-col{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+      font-size: 20px;
+}
+.definition2 .integral .el-row .el-col{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+      font-size: 20px;
+}
+
+.definition .contral .right-panel{
+  justify-content: flex-start;
+}
+.definition2 .contral .right-panel{
+  justify-content: flex-start;
+}
+
+.ledger .el-dialog{
+  width: 75%;
+}
+.ledgers button{
+  width: 120px;
+}
+
+.demonstration{
+  margin: 0 10px;
+}
+.contract .block{
+  margin-right: 10px;
+}
+
+.prepare .el-dialog__body .el-form .el-form-item{
+      display: inline-block;
+}
+
+.template .el-col .right-panel{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.definition .record .right-panel{
+  justify-content: flex-start;
+
+}
+.definition2 .record .right-panel{
+  justify-content: flex-start;
+
+}
+
+.area textarea{
+  height: 180px;
+}
+
+.dictionary .el-dialog__body{
+  padding: 10px;
+}
+.dictionary .el-col .left-panel{
+  align-items: center;
+  flex-wrap: nowrap;
+}
+// .definition2 .vab-query-form{
+//   margin-bottom: 1px;
+// }
+
+.colors .el-aside .el-table .el-button--small{
+  padding: 5px 10px;
+}
+
+.definition .mapping .el-table__body-wrapper {
+  height: calc(50vh - 164px);
+}
+.definition2 .mapping .el-table__body-wrapper {
+  height: calc(50vh - 164px);
+}
+
+.button_mapping{
+  margin: 5px 0;
+  width: 100%;
+}
+
+// .definition .el-table__body tr.current-row > td {
+//   background-color: #f7efff;
+// }
+// .definition2 .el-table__body tr.current-row > td {
+//   background-color: #1a66ffab;
+// }
+
+.definition .verifation .left-panel{
+  align-items: center;
+}
+.definition2 .verifation .left-panel{
+  align-items: center;
+}
+
+.definition .consumption .left-panel{
+  align-items: center;
+  justify-content: space-between;
+}
+.definition2 .consumption .left-panel{
+  align-items: center;
+  justify-content: space-between;
+}
+
+.definition .flex .right-panel{
+  justify-content: space-between;
+}
+.definition2 .flex .right-panel{
+  justify-content: space-between;
+}
+
+.roleper .el-container {
+  height: calc(100vh - 161px);
+}
+
+.roleper .el-main .el-checkbox{
+  width: 84px;
+}
+
+.definition .gutter{
+  background:'#e8f0ff'
+}
+.definition2 .gutter{
+  background:'#e8f0ff'
+}
+
+.definition .integral .el-row{
+  height: 80%;
+  border-bottom: 1px solid #ebeef5;
+}
+.definition2 .integral .el-row{
+  height: 80%;
+  border-bottom: 1px solid #ebeef5;
+}
+
+.definition .integral .el-row .el-col{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+      font-size: 14px;
+}
+.definition2 .integral .el-row .el-col{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+      font-size: 14px;
+}
+
+.definition .contral .right-panel{
+  justify-content: flex-start;
+}
+.definition2 .contral .right-panel{
+  justify-content: flex-start;
+}
+
+.ledger .el-dialog{
+  width: 75%;
+}
+.ledgers button{
+  width: 120px;
+}
+
+.definition .usage .right-panel{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.definition2 .usage .right-panel{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.demonstration{
+  margin: 0 10px;
+}
+.definition .voidrecord{
+      display: flex;
+      align-items: center;
+}
+.definition2 .voidrecord{
+  display: flex;
+  align-items: center;
+}
+
+.definition .voidrecord .right-panel{
+      display: flex;
+      justify-content: space-between;
+      padding: 0 20px;
+}
+.definition2 .voidrecord .right-panel{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+.definition .buy{
+  display: flex;
+  justify-content: center;
+}
+.definition2 .buy{
+  display: flex;
+  justify-content: center;
+}
+
+.register .el-tabs__header{
+  margin-bottom: 10px;
+}
+
+.register .buy .dialog-footer{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.customer .el-tabs__content{
+  overflow: initial;
+}
+
+.definition .voidrecord span{
+  font-weight: bold;
+}
+.definition2 .voidrecord span{
+  font-weight: bold;
+}
+
+.definition .customer .btn{
+  position: absolute;
+  right: 0;
+  top: -50px;
+}
+.definition2 .customer .btn{
+  position: absolute;
+  right: 0;
+  top: -50px;
+}
+
+.definition .usage{
+  display: flex;
+  justify-content: center;
+  box-shadow: rgb(170, 170, 170) 1px 1px 10px 1px;
+  width: 66.6%;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  padding-bottom: 20px;
+}
+
+.definition2 .usage{
+  display: flex;
+  justify-content: center;
+  box-shadow: rgb(170, 170, 170) 1px 1px 10px 1px;
+  width: 66.6%;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  padding-bottom: 20px;
+}
+
+.definition .purchasefrom .el-form-item{
+  width: 100%;
+}
+.definition2 .purchasefrom .el-form-item{
+  width: 80%;
+}
+
+.definition .purchasefrom{
+  width: 100%;
+        display: flex;
+        justify-content: center;
+      max-height: calc(100vh - 305px);
+            overflow-y: auto;
+}
+.definition2 .purchasefrom{
+  width: 100%;
+        display: flex;
+        justify-content: center;
+      max-height: calc(100vh - 305px);
+            overflow-y: auto;
+}
+
+.definition .purchasefrom .el-form{
+  padding: 40px 30px ;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  box-sizing: border-box;
+}
+.definition2 .purchasefrom .el-form{
+  padding: 40px 0 ;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.definition .purchase_btn{
+  width: 230px;
+}
+.definition2 .purchase_btn{
+  width: 230px;
+}
+
+.equipment_btn .el-dialog .el-dialog__footer button {
+    width: 150px;
+    margin-left: calc(33% - 100px);
+}
+.equipment_btn .el-dialog__wrapper .el-dialog{
+    width: 700px;
+}
+.cailbration .el-dialog__wrapper .el-dialog{
+  width: 850px;
+}
+.definition .dialog-footer .devices button{
+  margin-left: 0;
+}
+.definition2 .dialog-footer .devices button{
+  margin-left: 0;
+}
+
+.cailbration .dialog-footer .devides_btn{
+  display: flex;
+      justify-content: space-around;
+}
+
+.cailbration .devices{
+  margin-bottom: 15px;
+}
+
+.cailbration .dialog-footer .devides_btn .el-button{
+  margin-left: 0;
+}
+
+.cailbration .el-dialog .el-table{
+      max-height: 48vh;
+      overflow: inherit;
+}
+
+.cailbration .device_tab .el-table__row td{
+  height: 30px;
+}
+
+.period .el-dialog__footer .devices button{
+  float: inherit;
+}
+
+.calc .el-tabs{
+  // height: calc(100vh - 160px);
+  height: calc(100vh - 115px);//人员管理页面修改面板高度
+}
+
+.entru .el-table__row td{
+  text-align: left;
+}
+.client .el-tabs{
+  overflow-y: overlay;
+}
+
+.definition .border{
+  border: 1px solid;
+}
+
+.parameterdictionary .el-dialog__wrapper .el-dialog{
+    width: 1100px;
+}
+.definition .box_center .el-tabs__content{
+  height: calc(100% - 71px);
+}
+
+.definition .center{
+  height: 100%;
+  display: flex;
+      align-items: center;
+}
+
+//树结构样式覆盖
+//.el-tree-node__content{
+//  position: relative;
+//}
+.el-icon-caret-right:before {
+  width:20px;height:20px;display:block;;
+  content: " ";
+  background: url("~@/assets/images/treeIcons.png") no-repeat -28px -26px ;
+  background-size: 70px;
+}
+.expanded.el-icon-caret-right:before {
+  background: url("~@/assets/images/treeIcons.png") no-repeat -28px -51px!important;
+  background-size: 70px!important;
+}
+.el-tree-node__expand-icon.expanded{
+  transform: rotate(0deg);
+}
+.el-tree-node__expand-icon.is-leaf.el-icon-caret-right:before {
+  width:0;
+  background:none!important;
+}
+.el-dialog .el-dialog__footer .dialog-footer-center-custom{
+	width: 100%;
+	text-align: center;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap: wrap;
+}
+// .definition .el-dialog__headerbtn {
+//   display: none;
+// }
+// .definition2 .el-dialog__headerbtn {
+//   display: none;
+// }
+.el-table__body tr.current-row > td.el-table__cell{
+	    background-color: #f5f7fa!important;
+
+}
